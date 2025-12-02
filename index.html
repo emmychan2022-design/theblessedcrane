@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'PingFang HK'}
+    span.s2 {font: 12.0px 'Apple Color Emoji'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-Hant"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;The Blessed Crane&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== <span class="s1">全站禪風樣式</span> ===== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html, body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Shippori Mincho",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Noto Sans TC",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Noto Serif JP",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>180deg,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#c9e7ff 0%,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#fff5d4 80%</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.25em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sub {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>#draw {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 12px auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffffcc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 25px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>touch-action: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 70%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 260px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffffee;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #222;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.15em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>#sky {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">飄動的祝福語</span> */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes floatText {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>0% { transform: translateX(0px); opacity: 0.9; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>50% { transform: translateX(8px); opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>100% { transform: translateX(-5px); opacity: 0.85; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;THE BLESSED CRANE&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="sub"&gt;<span class="s1">為香港，也為離散的靈魂。</span>&lt;br&gt;<span class="s1">畫一隻紙鶴，把祝福放飛上天。</span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;canvas id="draw" width="300" height="260"&gt;&lt;/canvas&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;input id="wish" type="text" placeholder="<span class="s1">寫一句祝福語</span>…" maxlength="40"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button id="send"&gt;<span class="s1">放飛紙鶴</span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;canvas id="sky"&gt;&lt;/canvas&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Firebase SDK --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== Firebase <span class="s1">設定（你需要換成自己的！）</span> ===== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const firebaseConfig = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>apiKey: "YOUR_API_KEY",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>authDomain: "YOUR_PROJECT_ID.firebaseapp.com",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>projectId: "YOUR_PROJECT_ID",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>storageBucket: "YOUR_PROJECT_ID.appspot.com",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>messagingSenderId: "YOUR_SENDER_ID",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>appId: "YOUR_APP_ID"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>firebase.initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const db = firebase.firestore();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== 1. <span class="s1">畫紙鶴</span> ===== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const canvas = document.getElementById("draw");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const ctx = canvas.getContext("2d");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let drawing = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getPos(e) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rect = canvas.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let x, y;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (e.touches) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>x = e.touches[0].clientX - rect.left;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>y = e.touches[0].clientY - rect.top;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>x = e.clientX - rect.left;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>y = e.clientY - rect.top;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return { x, y };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("mousedown", e =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>drawing = true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = getPos(e);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.moveTo(p.x, p.y);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("mousemove", e =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!drawing) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = getPos(e);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.lineWidth = 2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.strokeStyle = "rgba(0,0,0,0.8)";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.lineCap = "round";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.lineTo(p.x, p.y);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.stroke();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("mouseup", () =&gt; drawing = false);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("mouseleave", () =&gt; drawing = false);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">手機</span> */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("touchstart", e =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>drawing = true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = getPos(e);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.moveTo(p.x, p.y);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("touchmove", e =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!drawing) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = getPos(e);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.lineTo(p.x, p.y);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.stroke();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas.addEventListener("touchend", () =&gt; drawing = false);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== 2. <span class="s1">放飛（寫入</span> Firebase<span class="s1">）</span> ===== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("send").onclick = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const wish = document.getElementById("wish").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!wish) return alert("<span class="s1">請寫一句祝福</span> <span class="s2">💛</span>");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const img = canvas.toDataURL();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>await db.collection("cranes").add({</p>
+<p class="p1"><span class="Apple-converted-space">        </span>img,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>text: wish,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>createdAt: firebase.firestore.FieldValue.serverTimestamp(),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>startX: Math.random()</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("wish").value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert("<span class="s1">你的紙鶴已經飛上天空</span> <span class="s2">🕊️</span>");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== 3. <span class="s1">天空動畫</span> ===== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sky = document.getElementById("sky");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sctx = sky.getContext("2d");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resizeSky() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>sky.width = window.innerWidth;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>sky.height = window.innerHeight;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>resizeSky();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onresize = resizeSky;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let cranes = [];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function animate() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>sctx.clearRect(0, 0, sky.width, sky.height);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>cranes.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>c.y -= c.speed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sctx.drawImage(c.imgObj, c.x, c.y, 60, 60);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sctx.fillStyle = "rgba(0,0,0,0.6)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sctx.font = "12px serif";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sctx.fillText(c.text, c.x, c.y + 75);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>cranes = cranes.filter(c =&gt; c.y &gt; -100);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>requestAnimationFrame(animate);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>animate();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== 4. <span class="s1">接收</span> Firebase <span class="s1">新紙鶴</span> ===== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>db.collection("cranes").orderBy("createdAt").onSnapshot(snap =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>snap.docChanges().forEach(change =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (change.type === "added") {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const d = change.doc.data();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const imgObj = new Image();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>imgObj.src = d.img;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cranes.push({</p>
+<p class="p1"><span class="Apple-converted-space">            </span>imgObj,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text: d.text,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>x: (d.startX || Math.random()) * sky.width,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>y: sky.height + Math.random() * 100,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>speed: 0.4 + Math.random() * 0.6</p>
+<p class="p1"><span class="Apple-converted-space">          </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

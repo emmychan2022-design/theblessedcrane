@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'PingFang HK'}
+    span.s2 {font: 12.0px 'Apple Color Emoji'}
+  </style>
+</head>
+<body>
+<p class="p1">/* ===== Firebase <span class="s1">設定：改成你自己的</span> ===== */</p>
+<p class="p1">const firebaseConfig = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>apiKey: "YOUR_API_KEY",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>authDomain: "YOUR_PROJECT_ID.firebaseapp.com",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>projectId: "YOUR_PROJECT_ID",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>storageBucket: "YOUR_PROJECT_ID.appspot.com",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>messagingSenderId: "YOUR_SENDER_ID",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>appId: "YOUR_APP_ID"</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">firebase.initializeApp(firebaseConfig);</p>
+<p class="p1">const db = firebase.firestore();</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== Canvas <span class="s1">畫鶴</span> ===== */</p>
+<p class="p1">const canvas = document.getElementById("draw");</p>
+<p class="p1">const ctx = canvas.getContext("2d");</p>
+<p class="p2"><br></p>
+<p class="p1">function drawGuide() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.save();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.strokeStyle = "rgba(0,0,0,0.08)";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.lineWidth = 1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.moveTo(40, 200);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.lineTo(150, 40);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.lineTo(260, 200);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.closePath();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.stroke();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.restore();</p>
+<p class="p1">}</p>
+<p class="p1">drawGuide();</p>
+<p class="p2"><br></p>
+<p class="p1">let drawing = false;</p>
+<p class="p2"><br></p>
+<p class="p1">function getPos(e) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rect = canvas.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let x, y;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (e.touches) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>x = e.touches[0].clientX - rect.left;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>y = e.touches[0].clientY - rect.top;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>x = e.clientX - rect.left;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>y = e.clientY - rect.top;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return { x, y };</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function start(e) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>drawing = true;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pos = getPos(e);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.moveTo(pos.x, pos.y);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function draw(e) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!drawing) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pos = getPos(e);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.lineWidth = 2.2;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.lineCap = "round";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.strokeStyle = "rgba(0,0,0,0.75)";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.lineTo(pos.x, pos.y);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.stroke();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function end() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>drawing = false;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ctx.closePath();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">canvas.addEventListener("mousedown", start);</p>
+<p class="p1">canvas.addEventListener("mousemove", draw);</p>
+<p class="p1">canvas.addEventListener("mouseup", end);</p>
+<p class="p1">canvas.addEventListener("mouseleave", end);</p>
+<p class="p2"><br></p>
+<p class="p1">canvas.addEventListener("touchstart", start);</p>
+<p class="p1">canvas.addEventListener("touchmove", draw);</p>
+<p class="p1">canvas.addEventListener("touchend", end);</p>
+<p class="p1">canvas.addEventListener("touchcancel", end);</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== <span class="s1">放飛紙鶴</span> ===== */</p>
+<p class="p1">const sendBtn = document.getElementById("send");</p>
+<p class="p1">const wishInput = document.getElementById("wish");</p>
+<p class="p2"><br></p>
+<p class="p1">sendBtn.addEventListener("click", async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const wish = wishInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!wish) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>alert("<span class="s1">寫一句祝福先呀</span> <span class="s2">🕊️</span>");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const img = canvas.toDataURL("image/png");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>await db.collection("cranes").add({</p>
+<p class="p1"><span class="Apple-converted-space">      </span>img,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text: wish,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>createdAt: firebase.firestore.FieldValue.serverTimestamp(),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>startX: Math.random()</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>drawGuide();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>wishInput.value = "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>alert("<span class="s1">你的紙鶴已經升空</span> <span class="s2">💛</span>");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (err) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>alert("<span class="s1">放飛不成功，稍後再試可以嗎？</span>");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== <span class="s1">天空畫布</span> ===== */</p>
+<p class="p1">const sky = document.getElementById("sky");</p>
+<p class="p1">const sctx = sky.getContext("2d");</p>
+<p class="p1">let cranes = [];</p>
+<p class="p2"><br></p>
+<p class="p1">function resizeSky() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sky.width = window.innerWidth;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sky.height = window.innerHeight;</p>
+<p class="p1">}</p>
+<p class="p1">window.addEventListener("resize", resizeSky);</p>
+<p class="p1">resizeSky();</p>
+<p class="p2"><br></p>
+<p class="p1">function addCrane(data) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const img = new Image();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>img.src = data.img;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>cranes.push({</p>
+<p class="p1"><span class="Apple-converted-space">    </span>img,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text: data.text,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>x: (data.startX || Math.random()) * sky.width,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>y: sky.height + Math.random() * 100,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>speed: 0.33 + Math.random() * 0.5</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function loop() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sctx.clearRect(0, 0, sky.width, sky.height);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>cranes.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>c.y -= c.speed;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.drawImage(c.img, c.x, c.y, 60, 60);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.font = "12px system-ui";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.fillStyle = "rgba(0,0,0,0.6)";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.save();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.translate(c.x, c.y + 75);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.font = "12px Mincho";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.fillStyle = "rgba(0,0,0,0.6)";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.fillText(c.text, 0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sctx.restore();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>cranes = cranes.filter(c =&gt; c.y &gt; -120);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>requestAnimationFrame(loop);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">loop();</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== Firebase <span class="s1">即時監聽紙鶴</span> ===== */</p>
+<p class="p1">db.collection("cranes")</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.orderBy("createdAt", "asc")</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.limit(300)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.onSnapshot(snap =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>snap.docChanges().forEach(change =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (change.type === "added") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const data = change.doc.data();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (data.img &amp;&amp; data.createdAt) addCrane(data);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+</body>
+</html>

@@ -1,172 +1,27 @@
-/* ===== Firebase 設定：改成你自己的 ===== */
+// ==========================
+// Firebase 設定（你需要貼自己的 config）
+// ==========================
+
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 
+// 初始化 Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-/* ===== Canvas 畫鶴 ===== */
+// ==========================
+// 畫布設定
+// ==========================
 const canvas = document.getElementById("draw");
 const ctx = canvas.getContext("2d");
-
-function drawGuide() {
-  ctx.save();
-  ctx.strokeStyle = "rgba(0,0,0,0.08)";
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(40, 200);
-  ctx.lineTo(150, 40);
-  ctx.lineTo(260, 200);
-  ctx.closePath();
-  ctx.stroke();
-  ctx.restore();
-}
-drawGuide();
-
-let drawing = false;
-
-function getPos(e) {
-  const rect = canvas.getBoundingClientRect();
-  let x, y;
-  if (e.touches) {
-    x = e.touches[0].clientX - rect.left;
-    y = e.touches[0].clientY - rect.top;
-  } else {
-    x = e.clientX - rect.left;
-    y = e.clientY - rect.top;
-  }
-  return { x, y };
-}
-
-function start(e) {
-  drawing = true;
-  const pos = getPos(e);
-  ctx.beginPath();
-  ctx.moveTo(pos.x, pos.y);
-}
-
-function draw(e) {
-  if (!drawing) return;
-  e.preventDefault();
-  const pos = getPos(e);
-  ctx.lineWidth = 2.2;
-  ctx.lineCap = "round";
-  ctx.strokeStyle = "rgba(0,0,0,0.75)";
-  ctx.lineTo(pos.x, pos.y);
-  ctx.stroke();
-}
-
-function end() {
-  drawing = false;
-  ctx.closePath();
-}
-
-canvas.addEventListener("mousedown", start);
-canvas.addEventListener("mousemove", draw);
-canvas.addEventListener("mouseup", end);
-canvas.addEventListener("mouseleave", end);
-
-canvas.addEventListener("touchstart", start);
-canvas.addEventListener("touchmove", draw);
-canvas.addEventListener("touchend", end);
-canvas.addEventListener("touchcancel", end);
-
-/* ===== 放飛紙鶴 ===== */
-const sendBtn = document.getElementById("send");
-const wishInput = document.getElementById("wish");
-
-sendBtn.addEventListener("click", async () => {
-  const wish = wishInput.value.trim();
-  if (!wish) {
-    alert("寫一句祝福先呀 🕊️");
-    return;
-  }
-
-  const img = canvas.toDataURL("image/png");
-
-  try {
-    await db.collection("cranes").add({
-      img,
-      text: wish,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      startX: Math.random()
-    });
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawGuide();
-    wishInput.value = "";
-
-    alert("你的紙鶴已經升空 💛");
-  } catch (err) {
-    alert("放飛不成功，稍後再試可以嗎？");
-  }
-});
-
-/* ===== 天空畫布 ===== */
 const sky = document.getElementById("sky");
 const sctx = sky.getContext("2d");
-let cranes = [];
 
-function resizeSky() {
-  sky.width = window.innerWidth;
-  sky.height = window.innerHeight;
-}
-window.addEventListener("resize", resizeSky);
-resizeSky();
-
-function addCrane(data) {
-  const img = new Image();
-  img.src = data.img;
-
-  cranes.push({
-    img,
-    text: data.text,
-    x: (data.startX || Math.random()) * sky.width,
-    y: sky.height + Math.random() * 100,
-    speed: 0.33 + Math.random() * 0.5
-  });
-}
-
-function loop() {
-  sctx.clearRect(0, 0, sky.width, sky.height);
-
-  cranes.forEach(c => {
-    c.y -= c.speed;
-    sctx.drawImage(c.img, c.x, c.y, 60, 60);
-
-    sctx.font = "12px system-ui";
-    sctx.fillStyle = "rgba(0,0,0,0.6)";
-
-    sctx.save();
-    sctx.translate(c.x, c.y + 75);
-    sctx.font = "12px Mincho";
-    sctx.fillStyle = "rgba(0,0,0,0.6)";
-    sctx.fillText(c.text, 0, 0);
-    sctx.restore();
-  });
-
-  cranes = cranes.filter(c => c.y > -120);
-
-  requestAnimationFrame(loop);
-}
-
-loop();
-
-/* ===== Firebase 即時監聽紙鶴 ===== */
-db.collection("cranes")
-  .orderBy("createdAt", "asc")
-  .limit(300)
-  .onSnapshot(snap => {
-    snap.docChanges().forEach(change => {
-      if (change.type === "added") {
-        const data = change.doc.data();
-        if (data.img && data.createdAt) addCrane(data);
-      }
-    });
-  });
+canvas.width = sky.width = window.innerWidth;
+canvas.height = sky.height
